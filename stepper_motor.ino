@@ -8,7 +8,7 @@ const int dirPin2 = 6;  // define pin for direction
 int CC = LOW;
 int CCW = HIGH;
 
-//Set direction 
+//Set direction
 int current_direction = LOW;
 
 void setup() {
@@ -20,7 +20,7 @@ void setup() {
 }
 
 
-
+// Loop
 void loop() {
 
 if(current_direction == LOW){
