@@ -8,13 +8,14 @@ const int dirPin2 = 6;  // define pin for direction
 int CC = LOW;
 int CCW = HIGH;
 
+//Set direction 
 int current_direction = LOW;
 
 void setup() {
-  pinMode(stepPin,OUTPUT); 
+  pinMode(stepPin,OUTPUT);
   pinMode(dirPin,OUTPUT);
-  
-  pinMode(stepPin2,OUTPUT); 
+
+  pinMode(stepPin2,OUTPUT);
   pinMode(dirPin2,OUTPUT);
 }
 
@@ -42,9 +43,9 @@ if(current_direction == LOW){
  for(int x = 0; x<4000; x++) { // loop for 200 steps
   digitalWrite(stepPin2,HIGH);
   delayMicroseconds(100);
-  digitalWrite(stepPin2,LOW); 
+  digitalWrite(stepPin2,LOW);
   delayMicroseconds(100);
  }
 delay(1000); // delay for 1 second
- 
+
 }
