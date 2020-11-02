@@ -32,11 +32,13 @@ void move(int step_pin, int dir_pin, int direction, int speed, int distance){
   // Set the direction
   digitalWrite(dir_pin, direction);
 
-  for(int x = 0; x<distance; x++) { // loop for 200 steps
+  // Run
+  for(int x = 0; x<distance; x++) {
    digitalWrite(step_pin,HIGH);
    delayMicroseconds(speed);
    digitalWrite(step_pin,LOW);
    delayMicroseconds(speed);
   }
 
+// End of loop
 }
