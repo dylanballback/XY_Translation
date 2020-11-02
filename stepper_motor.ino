@@ -1,51 +1,42 @@
-const int stepPin = 8; // define pin for step
-const int dirPin = 10;  // define pin for direction
+// X direction
+const int x_step_pin = 8; // define pin for step
+const int x_dir_pin = 10;  // define pin for direction
 
-const int stepPin2 = 4; // define pin for step
-const int dirPin2 = 6;  // define pin for direction
+// Y direction
+const int y_step_pin = 4; // define pin for step
+const int y_dir_pin = 6;  // define pin for direction
 
-
+// Defult directions
 int CC = LOW;
 int CCW = HIGH;
 
-//Set direction
-int current_direction = LOW;
-
 void setup() {
-  pinMode(stepPin,OUTPUT);
-  pinMode(dirPin,OUTPUT);
-
-  pinMode(stepPin2,OUTPUT);
-  pinMode(dirPin2,OUTPUT);
+  // Stepup all pins to the board
+  pinMode(x_step_pin,OUTPUT);
+  pinMode(x_dir_pin,OUTPUT);
+  pinMode(y_step_pin,OUTPUT);
+  pinMode(y_dir_pin,OUTPUT);
 }
 
-
-// Loop
 void loop() {
+  // Run the code to balance the system
+  move(x_step_pin,x_dir_pin,CC,500,600);
 
-if(current_direction == LOW){
-  digitalWrite(dirPin, HIGH); // set direction, HIGH for clockwise, LOW for anticlockwise
-  digitalWrite(dirPin2, HIGH); // set direction, HIGH for clockwise, LOW for anticlockwise
-  current_direction = HIGH;
- } else {
-  digitalWrite(dirPin, LOW); // set direction, HIGH for clockwise, LOW for anticlockwise
-  digitalWrite(dirPin2, LOW); // set direction, HIGH for clockwise, LOW for anticlockwise
-  current_direction = LOW;
- }
+  delay(1000); // delay for 1 second
 
- for(int x = 0; x<500; x++) { // loop for 200 steps
-  digitalWrite(stepPin,HIGH);
-  delayMicroseconds(500);
-  digitalWrite(stepPin,LOW);
-  delayMicroseconds(500);
- }
+}
 
- for(int x = 0; x<4000; x++) { // loop for 200 steps
-  digitalWrite(stepPin2,HIGH);
-  delayMicroseconds(100);
-  digitalWrite(stepPin2,LOW);
-  delayMicroseconds(100);
- }
-delay(1000); // delay for 1 second
+void move(int step_pin, int dir_pin, int direction, int speed, int distance){
+// Move the servo function
+
+  // Set the direction
+  digitalWrite(dir_pin, direction);
+
+  for(int x = 0; x<distance; x++) { // loop for 200 steps
+   digitalWrite(step_pin,HIGH);
+   delayMicroseconds(speed);
+   digitalWrite(step_pin,LOW);
+   delayMicroseconds(speed);
+  }
 
 }
