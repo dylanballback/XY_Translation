@@ -5,7 +5,7 @@ int16_t AcX, AcY, AcZ, Tmp, GyX, GyY, GyZ;
 
 int minVal = 9;
 int maxVal = 351;
-//Comments are lame
+
 double x;
 double y;
 
