@@ -35,10 +35,12 @@ void setup() {
   pinMode(x_dir_pin,OUTPUT);
   pinMode(y_step_pin,OUTPUT);
   pinMode(y_dir_pin,OUTPUT);
-  
+
 }
 
 void loop() {
+
+  // Read the MPU 6050
   Wire.beginTransmission(MPU_addr);
   Wire.write(0x3B);
   Wire.endTransmission(false);
