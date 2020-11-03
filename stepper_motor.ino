@@ -7,8 +7,8 @@ const int y_step_pin = 4; // define pin for step
 const int y_dir_pin = 6;  // define pin for direction
 
 // Defult directions
-int CC = LOW;
-int CCW = HIGH;
+int CC = LOW; // Move left
+int CCW = HIGH; // Move right
 
 void setup() {
   // Stepup all pins to the board
