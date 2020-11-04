@@ -155,31 +155,34 @@ void loop() {
    *part that afects the angles and ofcourse multiply by 0.98 */
 
    /*---X axis angle---*/
-   Total_angle[0] = 0.98 *(Total_angle[0] + Gyro_angle[0]*elapsedTime) + 0.02*Acceleration_angle[0];
+   Total_angle[1] = 0.98 *(Total_angle[0] + Gyro_angle[0]*elapsedTime) + 0.02*Acceleration_angle[0];
    /*---Y axis angle---*/
-   Total_angle[1] = 0.98 *(Total_angle[1] + Gyro_angle[1]*elapsedTime) + 0.02*Acceleration_angle[1];
+   Total_angle[0] = 0.98 *(Total_angle[1] + Gyro_angle[1]*elapsedTime) + 0.02*Acceleration_angle[1];
 
    /*Now we have our angles in degree and values from -10º0 to 100º aprox*/
-    Serial.println(Total_angle[1]);
-    // CHANGE THE VALUES IN THE IF STATEMENTS........
+
       if (Total_angle[0] > 1 ){
+        Serial.println("Move up X");
         Serial.println(Total_angle[0]);
-        move(x_step_pin,x_dir_pin,CCW,500,600);
+        //move(x_step_pin,x_dir_pin,CCW,500,600);
        }
     //-------------------------
       if (Total_angle[0] < 1 ){
+        Serial.println("Move down X");
         Serial.println(Total_angle[0]);
-        move(x_step_pin,x_dir_pin,CC,500,600);
+        //move(x_step_pin,x_dir_pin,CC,500,600);
        }
     //-------------------------
       if (Total_angle[1] > 1 ){
+        Serial.println("Move up Y");
         Serial.println(Total_angle[1]);
-        move(y_step_pin,y_dir_pin,CCW,25,2000);
+        //move(y_step_pin,y_dir_pin,CCW,25,2000);
        }
     //-------------------------
       if (Total_angle[1] < 1 ){
+        Serial.println("Move down Y");
         Serial.println(Total_angle[1]);
-        move(y_step_pin,y_dir_pin,CC,25,2000);
+        //move(y_step_pin,y_dir_pin,CC,25,2000);
        }
 
 }//end of loop void
