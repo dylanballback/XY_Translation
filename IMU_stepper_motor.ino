@@ -101,27 +101,23 @@ void loop() {
   Total_angleX[1] = 0.98 * (Total_angleX[1] + Gyro_angleX[1] * elapsedTime) + 0.02 * Acceleration_angleX[1];
 //-------------------------
 // CHANGE THE VALUES IN THE IF STATEMENTS........
-  if (x > 10 && x < 180){
+  if (x > 1 ){
     Serial.println(Total_angleX[1]);
-    Serial.println("move forward in the X // ");
     move(x_step_pin,x_dir_pin,CCW,500,600);
    }
 //-------------------------
-  if (x < 350 && x > 181){
+  if (x < 1 ){
     Serial.println(Total_angleX[1]);
-    Serial.println("move backward in the X // ");
     move(x_step_pin,x_dir_pin,CC,500,600);
    }
 //-------------------------
-  if (y > 7 && y < 180){
+  if (y > 1 ){
     Serial.println(Total_angleY[0]);
-    Serial.println("move to the right in the Y ");
     move(y_step_pin,y_dir_pin,CCW,25,2000);
    }
 //-------------------------
-  if (y < 353 && y > 181){
+  if (y < 1 ){
     Serial.println(Total_angleY[0]);
-    Serial.println("move to the left in the Y ");
     move(y_step_pin,y_dir_pin,CC,25,2000);
    }
 // End Loop
