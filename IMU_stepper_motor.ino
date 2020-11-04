@@ -96,28 +96,28 @@ void loop() {
 //-------------------------
   // implement for the acceleration due to gravity, .98, that affects the angles
   /*---X axis angle---*/
-  Total_angleY[0] = 0.98 * (Total_angleY[0] + Gyro_angleY[0] * elapsedTime) + 0.02 * Acceleration_angleY[0];
+  Total_angleX[0] = 0.98 * (Total_angleX[0] + Gyro_angleX[0] * elapsedTime) + 0.02 * Acceleration_angleX[0];
   /*---Y axis angle---*/
-  Total_angleX[1] = 0.98 * (Total_angleX[1] + Gyro_angleX[1] * elapsedTime) + 0.02 * Acceleration_angleX[1];
+  Total_angleY[1] = 0.98 * (Total_angleY[1] + Gyro_angleY[1] * elapsedTime) + 0.02 * Acceleration_angleY[1];
 //-------------------------
 // CHANGE THE VALUES IN THE IF STATEMENTS........
   if (x > 1 ){
-    Serial.println(Total_angleX[1]);
+    Serial.println(Total_angleY[1]);
     move(x_step_pin,x_dir_pin,CCW,500,600);
    }
 //-------------------------
   if (x < 1 ){
-    Serial.println(Total_angleX[1]);
+    Serial.println(Total_angleY[1]);
     move(x_step_pin,x_dir_pin,CC,500,600);
    }
 //-------------------------
   if (y > 1 ){
-    Serial.println(Total_angleY[0]);
+    Serial.println(Total_angleX[0]);
     move(y_step_pin,y_dir_pin,CCW,25,2000);
    }
 //-------------------------
   if (y < 1 ){
-    Serial.println(Total_angleY[0]);
+    Serial.println(Total_angleX[0]);
     move(y_step_pin,y_dir_pin,CC,25,2000);
    }
 // End Loop
