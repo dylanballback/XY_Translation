@@ -41,7 +41,7 @@ void setup() {
   Wire.write(0x6B);
   Wire.write(0);
   Wire.endTransmission(true);
-  Serial.begin(2500000);
+  Serial.begin(250000);
 //-------------------------
   // Stepup all pins to the board
   pinMode(x_step_pin,OUTPUT);
