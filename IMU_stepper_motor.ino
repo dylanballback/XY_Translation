@@ -41,7 +41,7 @@ void setup() {
   Wire.write(0x6B);
   Wire.write(0);
   Wire.endTransmission(true);
-  Serial.begin(250000);
+  Serial.begin(9600);
 //-------------------------
   // Stepup all pins to the board
   pinMode(x_step_pin,OUTPUT);
@@ -101,24 +101,24 @@ void loop() {
   Total_angleY[1] = 0.98 * (Total_angleY[1] + Gyro_angleY[1] * elapsedTime) + 0.02 * Acceleration_angleY[1];
 //-------------------------
 // CHANGE THE VALUES IN THE IF STATEMENTS........
-  if (x > 1 ){
-    Serial.println(Total_angleY[1]);
-    //move(x_step_pin,x_dir_pin,CCW,500,100);
+  if (x > 3 ){
+    //Serial.println(Total_angleY[1]);
+    move(x_step_pin,x_dir_pin,CCW,500,600);
    }
 //-------------------------
-  if (x < 1 ){
-    Serial.println(Total_angleY[1]);
-    //move(x_step_pin,x_dir_pin,CC,500,100);
+  if (x < -3 ){
+    //Serial.println(Total_angleY[1]);
+    move(x_step_pin,x_dir_pin,CC,500,600);
    }
 //-------------------------
-  if (y > 1 ){
-    Serial.println(Total_angleX[0]);
-    //move(y_step_pin,y_dir_pin,CCW,25,300);
+  if (y > 3 ){
+    //Serial.println(Total_angleX[0]);
+    move(y_step_pin,y_dir_pin,CCW,25,2000);
    }
 //-------------------------
-  if (y < 1 ){
-    Serial.println(Total_angleX[0]);
-    //move(y_step_pin,y_dir_pin,CC,25,300);
+  if (y < -3 ){
+    //Serial.println(Total_angleX[0]);
+    move(y_step_pin,y_dir_pin,CC,25,2000);
    }
 // End Loop
 }
