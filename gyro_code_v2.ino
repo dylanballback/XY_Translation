@@ -161,25 +161,25 @@ void loop() {
 
    /*Now we have our angles in degree and values from -10º0 to 100º aprox*/
 
-      if (Total_angle[0] > 3 ){
+      if (Total_angle[0] > 2.5 ){
         Serial.println("Move up X");
         Serial.println(Total_angle[0]);
         move(x_step_pin,x_dir_pin,CC,500,50);
        }
     //-------------------------
-      if (Total_angle[0] < -3 ){
+      if (Total_angle[0] < -2.5 ){
         Serial.println("Move down X");
         Serial.println(Total_angle[0]);
         move(x_step_pin,x_dir_pin,CCW,500,50);
        }
     //-------------------------
-      if (Total_angle[1] > 3 ){
+      if (Total_angle[1] > 2.5 ){
         Serial.println("------Move up Y------");
         Serial.println(Total_angle[1]);
         move(y_step_pin,y_dir_pin,CC,25,150);
        }
     //-------------------------
-      if (Total_angle[1] < -3 ){
+      if (Total_angle[1] < -2.5 ){
         Serial.println("------Move down Y------");
         Serial.println(Total_angle[1]);
         move(y_step_pin,y_dir_pin,CCW,25,150);
